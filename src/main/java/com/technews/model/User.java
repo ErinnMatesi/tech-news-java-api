@@ -22,8 +22,11 @@ public class User {
     @Transient
     boolean loggedIn;
 
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.All, fetch = FetchType.EAGER)
     private List<Post> posts;
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Vote> votes;
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.All, fetch = FetchType.LAZY)
     private List<Comment> comments;
 
 }
